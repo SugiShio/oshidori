@@ -1,0 +1,146 @@
+@charset 'utf-8';
+
+html {
+  font-family: $font-sansserif;
+  font-size: $font-md;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.7;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  text-decoration: none;
+  letter-spacing: .05em;
+  color: $color-text;
+  border: 0;
+  outline: none;
+
+  font-feature-settings: "palt";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body, div,
+h1, h2, h3, h4, h5, h6, p,
+a, span, time, mark,
+dl, dt, dd, ol, ul, li,
+form, label, legend,
+article,
+footer, header, main,
+menu, nav, section, summary, figure {
+  font-family: $font-sansserif;
+  font-size: $font-md;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.7;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+  vertical-align: baseline;
+  text-decoration: none;
+  letter-spacing: .05em;
+  color: inherit;
+  border: 0;
+  outline: none;
+
+  font-feature-settings: "palt";
+  -webkit-tap-highlight-color: transparent;
+}
+
+a, span, time, strong, em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  border: 0;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-y: scroll;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+input, textarea, {
+  margin: 0;
+  padding: 0;
+}
+
+ol, ul {
+  list-style:none;
+}
+
+table {
+  border-spacing:0;
+  border-collapse: collapse;
+}
+
+caption, th {
+  text-align: left;
+}
+
+hr {
+  margin: 0;
+  border: none;
+}
+
+a:focus {
+  outline:none;
+}
+
+.clearfix:after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0;
+  content: '.';
+}
+
+.clearfix {
+  min-height: 1px;
+}
+
+* html .clearfix {
+  height: 1px;
+    /*¥*//*/
+    height: auto;
+    overflow: hidden;
+    /**/
+}
+
+.both {
+  clear:both;
+}
+
+.inline_block {
+  display: inline-block;
+
+  *display: inline;
+  *zoom: 1;
+}

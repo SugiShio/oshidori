@@ -1,9 +1,35 @@
 {
   "name": "oshidori",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {},
   "engines": {
     "yarn": "1.9.4",
     "node": "8.4.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.4.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "node-sass": "^4.8.3",
+    "postcss-loader": "^2.1.4",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "vue": "^2.5.17",
+    "vue-cli": "^2.9.6",
+    "vue-loader": "^15.3.0",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15",
+    "webpack-notifier": "^1.6.0"
+  },
+  "scripts": {
+    "dev": "webpack --mode=development",
+    "watch": "webpack --mode=development --watch --progress"
   }
 }
