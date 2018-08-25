@@ -35,7 +35,7 @@ dl, dt, dd, ol, ul, li,
 form, label, legend,
 article,
 footer, header, main,
-menu, nav, section, summary, figure {
+pre, menu, nav, section, summary, figure {
   font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro", "Hiragino Kaku Gothic Pro", "\30E1\30A4\30EA\30AA", "Meiryo", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -132,3 +132,17 @@ a:focus {
   display: inline-block;
   *display: inline;
   *zoom: 1; }
+
+.debug_dump {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #eee;
+  transition: .3s; }
+  .debug_dump:hover {
+    opacity: .2; }

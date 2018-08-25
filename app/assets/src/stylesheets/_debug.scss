@@ -1,0 +1,16 @@
+.debug_dump {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #eee;
+  transition: .3s;
+
+  &:hover {
+    opacity: .2;
+  }
+}

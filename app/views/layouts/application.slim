@@ -5,4 +5,5 @@ html
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all'
   body
+    = debug(params) if Rails.env.development?
     = yield
