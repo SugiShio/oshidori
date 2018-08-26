@@ -5,7 +5,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
-  test "login with invalid information" do
+  test "signin with invalid information" do
     get signin_path
     assert_template 'sessions/new'
     post signin_path, params: { session: { email: "", password: "" } }
@@ -15,11 +15,24 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-  test "login with valid information" do
+  test "signin with valid information" do
     get signin_path
     post signin_path, params: { session: { email: @user.email, password: 'password' } }
     assert_redirected_to @user
     follow_redirect!
     assert_template 'users/show'
+    assert_select 'a[href=?]', signin_path, count: 0
+    assert_select 'a[href=?]', signout_path
+  end
+
+  test "signout" do
+    get signin_path
+    delete signout_path
+    assert_not is_signin?
+    assert_redirected_to root_url
+    follow_redirect!
+    assert_template '/'
+    assert_select 'a[href=?]', signin_path
+    assert_select 'a[href=?]', signout_path, count: 0
   end
 end
