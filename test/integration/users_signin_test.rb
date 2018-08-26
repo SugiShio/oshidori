@@ -27,6 +27,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
 
   test "signout" do
     get signin_path
+    signin_as(@user)
     delete signout_path
     assert_not is_signin?
     assert_redirected_to root_url
@@ -34,5 +35,19 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_template '/'
     assert_select 'a[href=?]', signin_path
     assert_select 'a[href=?]', signout_path, count: 0
+  end
+
+  test "signin with remembering" do
+    signin_as(@user, remember_me: '1')
+    assert_not_empty cookies['remember_token']
+  end
+
+  test "signin without remembering" do
+    # クッキーを保存してログイン
+    signin_as(@user, remember_me: '1')
+    delete signout_path
+    # クッキーを削除してログイン
+    signin_as(@user, remember_me: '0')
+    assert_empty cookies['remember_token']
   end
 end

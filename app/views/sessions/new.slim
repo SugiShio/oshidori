@@ -10,6 +10,12 @@ h1 Login
   div
     = f.submit "Log in"
 
+  div
+    = f.label :remember_me do
+      = f.check_box :remember_me
+      span Remember me on this computer
+
+
   p
     | New user?
     = link_to "Sign up now!", new_user_path
