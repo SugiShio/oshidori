@@ -29,7 +29,8 @@
     "webpack-notifier": "^1.6.0"
   },
   "scripts": {
-    "dev": "webpack --mode=development",
-    "watch": "webpack --mode=development --watch --progress"
+    "dev": "webpack",
+    "watch": "webpack --watch --progress",
+    "heroku-postbuild": "webpack --config ./webpack.prod.config.js"
   }
 }
