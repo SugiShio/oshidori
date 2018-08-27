@@ -11,4 +11,15 @@ class ActiveSupport::TestCase
   def is_signin?
     !session[:user_id].nil?
   end
+
+  def signin_as(user)
+    session[:user_id] = user.id
+  end
+end
+
+class ActionDispatch::IntegrationTest
+  # テストユーザーとしてログインする
+  def signin_as(user, password: 'password', remember_me: '1')
+    post signin_path, params: { session: { email: user.email, password: password } }
+  end
 end

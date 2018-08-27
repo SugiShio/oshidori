@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :ensure_signin, only: [:new, :create]
+
   def show
     @user = User.find(params[:id])
   end
