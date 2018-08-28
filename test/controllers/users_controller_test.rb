@@ -6,18 +6,18 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect show when not signin" do
-    get user_path(@user)
+    get user_path
     assert_redirected_to signin_path
   end
 
   test "should redirect edit when not signin" do
-    get edit_user_path(@user)
+    get edit_user_path
     assert_redirected_to signin_path
     assert_not flash.empty?
   end
 
   test "should redirect update when not signin" do
-    patch user_path(@user), params: { user: { name: @user.name, email: @user.email }}
+    patch user_path, params: { user: { name: @user.name, email: @user.email }}
     assert_redirected_to signin_path
     assert_not flash.empty?
   end

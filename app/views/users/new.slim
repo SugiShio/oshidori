@@ -3,7 +3,7 @@
     - @user.errors.full_messages.each do |msg|
       li = msg
 
-= form_for @user do |f|
+= form_for @user, url: user_path do |f|
   div
     = f.label :name
     = f.text_field :name
