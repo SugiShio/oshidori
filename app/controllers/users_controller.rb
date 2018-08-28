@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       signin @user
       flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
+      redirect_to profile_path
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update_attributes(user_params)
       flash[:success] = 'Successfully profile updated!'
-      redirect_to @user
+      redirect_to profile_path
     else
       render 'edit'
     end

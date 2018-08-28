@@ -18,7 +18,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test "signin with valid information" do
     get signin_path
     post signin_path, params: { session: { email: @user.email, password: 'password' } }
-    assert_redirected_to @user
+    assert_redirected_to profile_path
     follow_redirect!
     assert_template 'users/show'
     assert_select 'a[href=?]', signin_path, count: 0

@@ -7,20 +7,20 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 
   test "unsuccessful edit" do
     signin_as(@user)
-    get edit_user_path
+    get edit_profile_path
     assert_template 'users/edit'
-    patch user_path(@user), params: { user: { name: "", email: "invalid@example" } }
+    patch profile_path, params: { user: { name: "", email: "invalid@example" } }
     assert_template 'users/edit'
   end
 
   test "successful edit" do
     signin_as(@user)
-    get edit_user_path
+    get edit_profile_path
     name  = "Foo Bar"
     email = "foo@bar.com"
-    patch user_path(@user), params: { user: { name: name, email: email} }
+    patch profile_path, params: { user: { name: name, email: email} }
     assert_not flash.empty?
-    assert_redirected_to @user
+    assert_redirected_to profile_path
     @user.reload
     assert_equal name, @user.name
     assert_equal email, @user.email
