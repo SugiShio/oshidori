@@ -151,7 +151,8 @@ a:focus {
 .l-main {
   display: flex;
   flex-direction: column;
-  flex-grow: 1; }
+  flex-grow: 1;
+  background-color: #f7f7f7; }
 
 .debug_dump {
   position: fixed;
@@ -212,3 +213,7 @@ a:focus {
   margin: 0 auto;
   padding: 20px;
   background-color: #fff; }
+  .o-body--small {
+    flex-grow: unset;
+    width: 500px;
+    margin: 20px auto; }

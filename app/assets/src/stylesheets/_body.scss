@@ -5,4 +5,10 @@
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
+
+  &--small {
+    flex-grow: unset;
+    width: 500px;
+    margin: 20px auto;
+  }
 }
