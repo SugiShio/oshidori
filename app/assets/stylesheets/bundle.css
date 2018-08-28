@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 /* colors
 ------------------*/
 /* font sizes
@@ -7,9 +7,13 @@
 ------------------*/
 /* break points
 ------------------*/
+/* size
+------------------*/
+/* transition
+------------------*/
 html {
-  font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro", "Hiragino Kaku Gothic Pro", "\30E1\30A4\30EA\30AA", "Meiryo", sans-serif;
-  font-size: 14px;
+  font-family: "Nunito", cursive, "\30D2\30E9\30AE\30CE\89D2\30B4   Pro", "Hiragino Kaku Gothic Pro", "\30E1\30A4\30EA\30AA", "Meiryo", sans-serif;
+  font-size: 16px;
   font-weight: 400;
   font-style: normal;
   line-height: 1.7;
@@ -19,7 +23,7 @@ html {
   vertical-align: baseline;
   text-decoration: none;
   letter-spacing: .05em;
-  color: #000;
+  color: #54494b;
   border: 0;
   outline: none;
   -webkit-font-feature-settings: "palt";
@@ -27,6 +31,12 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh; }
 
 body, div,
 h1, h2, h3, h4, h5, h6, p,
@@ -36,8 +46,8 @@ form, label, legend,
 article,
 footer, header, main,
 pre, menu, nav, section, summary, figure {
-  font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro", "Hiragino Kaku Gothic Pro", "\30E1\30A4\30EA\30AA", "Meiryo", sans-serif;
-  font-size: 14px;
+  font-family: "Nunito", cursive, "\30D2\30E9\30AE\30CE\89D2\30B4   Pro", "Hiragino Kaku Gothic Pro", "\30E1\30A4\30EA\30AA", "Meiryo", sans-serif;
+  font-size: 16px;
   font-weight: 400;
   font-style: normal;
   line-height: 1.7;
@@ -133,6 +143,16 @@ a:focus {
   *display: inline;
   *zoom: 1; }
 
+.l-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; }
+
+.l-main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; }
+
 .debug_dump {
   position: fixed;
   right: 0;
@@ -146,3 +166,49 @@ a:focus {
   transition: .3s; }
   .debug_dump:hover {
     opacity: .2; }
+
+.o-header {
+  background-color: #b33951; }
+  .o-header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 10px; }
+  .o-header__logo {
+    display: block;
+    padding: 0 10px;
+    font-size: 24px;
+    transition: 0.3s;
+    color: #fff; }
+    .o-header__logo:hover {
+      opacity: .6; }
+  .o-header__action a {
+    display: block;
+    padding: 0 20px;
+    line-height: 50px;
+    transition: 0.3s;
+    color: #fff; }
+    .o-header__action a:hover {
+      opacity: .6; }
+
+.o-footer {
+  background-color: #54494b; }
+  .o-footer__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 10px; }
+  .o-footer__copyright {
+    display: block;
+    color: #fff;
+    line-height: 30px;
+    text-align: center; }
+
+.o-body {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff; }

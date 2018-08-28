@@ -1,15 +1,16 @@
-h1 Login
+.o-body
+  h1 Login
 
-= form_for :session, url: signin_path do |f|
-  div
-    = f.label :email
-    = f.email_field :email
-  div
-    = f.label :password
-    = f.password_field :password
-  div
-    = f.submit "Log in"
+  = form_for :session, url: signin_path do |f|
+    div
+      = f.label :email
+      = f.email_field :email
+    div
+      = f.label :password
+      = f.password_field :password
+    div
+      = f.submit "Log in"
 
-  p
-    | New user?
-    = link_to "Sign up now!", signup_path
+    p
+      | New user?
+      = link_to "Sign up now!", signup_path

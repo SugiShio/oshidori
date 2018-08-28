@@ -1,15 +1,28 @@
 /* colors
 ------------------*/
-$color-text: #000;
+$color-red: #b33951;
+$color-green: #91c7b1;
+$color-yellow: #e3d081;
+$color-lightgray: #fafafa;
+$color-text: #54494b;
+$color-header: $color-red;
 
 /* font sizes
 ------------------*/
-$font-md: 14px;
+$font-md: 16px;
 
 /* font families
 ------------------*/
-$font-sansserif: 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', sans-serif;
+$font-sansserif: 'Nunito', cursive, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', sans-serif;
 
 /* break points
 ------------------*/
 $bp-sp: 768px;
+
+/* size
+------------------*/
+$width-default: 1000px;
+
+/* transition
+------------------*/
+$transition-default: .3s;

@@ -1,24 +1,25 @@
-- if @user.errors.any?
-  ul
-    - @user.errors.full_messages.each do |msg|
-      li = msg
+.o-body
+  - if @user.errors.any?
+    ul
+      - @user.errors.full_messages.each do |msg|
+        li = msg
 
-= form_for @user, url: profile_path do |f|
-  div
-    = f.label :name
-    = f.text_field :name
-  div
-    = f.label :email
-    = f.email_field :email
-  div
-    = f.label :password
-    = f.password_field :password
-  div
-    = f.label :password_confirmation, "Confirmation"
-    = f.password_field :password_confirmation
-  div
-    = f.submit "Save changes"
+  = form_for @user, url: profile_path do |f|
+    div
+      = f.label :name
+      = f.text_field :name
+    div
+      = f.label :email
+      = f.email_field :email
+    div
+      = f.label :password
+      = f.password_field :password
+    div
+      = f.label :password_confirmation, "Confirmation"
+      = f.password_field :password_confirmation
+    div
+      = f.submit "Save changes"
 
-  div
-    = gravatar_for @user
-    = link_to 'change', 'http://gravatar.com/emails', target: '_blank'
+    div
+      = gravatar_for @user
+      = link_to 'change', 'http://gravatar.com/emails', target: '_blank'

@@ -1,0 +1,9 @@
+.o-header
+  .o-header__inner
+    h1.o-header__logo
+      = link_to 'Oshidori', root_path
+    .o-header__action
+      - if is_signin?
+        = link_to 'signout', signout_path, method: :delete
+      - else
+        = link_to 'signin', signin_path

@@ -5,12 +5,16 @@ html
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
   body
     = debug(params) if Rails.env.development?
-    - flash.each do |message_type, message|
-      p = message
-    - if is_signin?
-      = link_to 'signout', signout_path, method: :delete
-    - else
-      = link_to 'signin', signin_path
-    = yield
+    .l-wrapper
+      header.l-header
+        = render partial: 'layouts/header'
+      - flash.each do |message_type, message|
+        p = message
+      main.l-main
+        = yield
+
+    footer.l-footer
+      = render partial: 'layouts/footer'

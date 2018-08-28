@@ -1,0 +1,36 @@
+.o-header {
+  background-color: $color-header;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: $width-default;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  &__logo {
+    display: block;
+    padding: 0 10px;
+    font-size: 24px;
+    transition: $transition-default;
+    color: #fff;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+
+  &__action a {
+    display: block;
+    padding: 0 20px;
+    line-height: 50px;
+    transition: $transition-default;
+    color: #fff;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+}

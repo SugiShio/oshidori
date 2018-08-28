@@ -1,0 +1,16 @@
+.o-footer {
+  background-color: $color-text;
+
+  &__inner {
+    max-width: $width-default;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  &__copyright {
+    display: block;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+  }
+}
