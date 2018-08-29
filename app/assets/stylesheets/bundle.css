@@ -42,7 +42,7 @@ body, div,
 h1, h2, h3, h4, h5, h6, p,
 a, span, time, mark,
 dl, dt, dd, ol, ul, li,
-form, label, legend,
+form, label, legend, input,
 article,
 footer, header, main,
 pre, menu, nav, section, summary, figure {
@@ -153,6 +153,23 @@ a:focus {
   flex-direction: column;
   flex-grow: 1;
   background-color: #f7f7f7; }
+
+input {
+  border-radius: 3px;
+  padding: 10px;
+  line-height: normal; }
+  input[type='text'], input[type='password'], input[type='email'] {
+    width: 100%;
+    border: 1px solid #ddd; }
+  input[type='submit'] {
+    background-color: #91c7b1;
+    min-width: 300px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s; }
+    input[type='submit']:hover {
+      background-color: #76b99e; }
 
 .debug_dump {
   position: fixed;

@@ -1,0 +1,25 @@
+input {
+  border-radius: 3px;
+  padding: 10px;
+  line-height: normal;
+
+  &[type='text'],
+  &[type='password'],
+  &[type='email'] {
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+
+  &[type='submit'] {
+    background-color: $color-green;
+    min-width: 300px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    transition: $transition-default;
+
+    &:hover {
+      background-color: darken($color-green, 8%);
+    }
+  }
+}
