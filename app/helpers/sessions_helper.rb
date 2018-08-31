@@ -29,7 +29,7 @@ module SessionsHelper
   end
 
   def is_signin?
-    !session[:user_id].nil?
+    !current_user.nil?
   end
 
   def forget(user)
