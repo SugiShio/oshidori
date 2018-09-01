@@ -39,7 +39,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
 
   test "signin with remembering" do
     signin_as(@user, remember_me: '1')
-    assert_not_empty cookies['remember_token']
+    assert_equal cookies['remember_token'], assigns(:user).remember_token
   end
 
   test "signin without remembering" do
@@ -51,3 +51,4 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_empty cookies['remember_token']
   end
 end
+
