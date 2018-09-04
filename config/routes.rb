@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   resource :profile, only: [:show, :edit, :update], controller: 'users'
+  resource :create_account, only: [:new, :create, :show], controller: 'activation_tokens'
+
 end
