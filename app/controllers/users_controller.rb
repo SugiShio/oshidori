@@ -6,7 +6,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    activation_token = ActivationToken.find(params[:id])
+    if !activation_token.authenticated?(params[:token])
+      redirect_to error_path
+    end
+    @user = User.new(email: activation_token.email)
   end
 
   def create

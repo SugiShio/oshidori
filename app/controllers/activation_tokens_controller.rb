@@ -11,8 +11,8 @@ class ActivationTokensController < ApplicationController
 
   def create
     @activation_token = ActivationToken.new(activation_token_params)
-    @activation_token[:digest] = Token.digest(Token.new_token)
     if @activation_token.save
+      ActivationTokenMailer.create_account(@activation_token).deliver_now
       redirect_to create_account_url(id: @activation_token.id)
     else
       render 'new'
