@@ -6,19 +6,27 @@ class UsersController < ApplicationController
   end
 
   def new
-    activation_token = ActivationToken.find(params[:id])
-    if !activation_token.authenticated?(params[:token])
+    @activation_token = ActivationToken.find(params[:id])
+    @token = params[:token]
+    if !@activation_token.authenticated?(@token)
       redirect_to error_path
     end
-    @user = User.new(email: activation_token.email)
+    @user = User.new
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      signin @user
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to profile_path
+    @activation_token = ActivationToken.find(params[:token_id])
+    @token = params[:token]
+    if @activation_token.authenticated?(@token)
+      @user = User.new(user_params)
+      @user.set_email(@activation_token.id)
+      if @user.save
+        signin @user
+        flash[:success] = "Welcome to the Sample App!"
+        redirect_to profile_path
+      else
+        render 'new'
+      end
     else
       render 'new'
     end
@@ -41,6 +49,6 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :password, :password_confirmation)
     end
 end

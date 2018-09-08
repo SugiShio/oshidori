@@ -20,4 +20,10 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+
+    def set_email(id)
+      activation_token = ActivationToken.find(id)
+      self.email ||= activation_token.email
+    end
 end
