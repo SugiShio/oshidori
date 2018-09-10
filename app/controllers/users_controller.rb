@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :ensure_signout, only: [:new, :create]
   skip_before_action :ensure_signin, only: [:new, :create]
 
   def show
@@ -6,10 +7,16 @@ class UsersController < ApplicationController
   end
 
   def new
+    if params[:id].nil? || params[:token].nil?
+      redirect_to error_path and return
+    end
     @activation_token = ActivationToken.find(params[:id])
     @token = params[:token]
     if !@activation_token.authenticated?(@token)
       redirect_to error_path
+    elsif User.find_by(email: @activation_token.email).present?
+      flash[:success] = "すでに登録されているメールアドレスです"
+      redirect_to signin_path
     end
     @user = User.new
   end
@@ -28,7 +35,7 @@ class UsersController < ApplicationController
         render 'new'
       end
     else
-      render 'new'
+      redirect_to error_path
     end
   end
 
@@ -50,5 +57,12 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :password, :password_confirmation)
+    end
+
+    def ensure_signout
+      if is_signin?
+        flash[:success] = "すでにログインしています"
+        redirect_to profile_path
+      end
     end
 end

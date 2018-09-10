@@ -10,6 +10,10 @@ class ActivationTokensController < ApplicationController
   end
 
   def create
+    if User.find_by(email: params[:email]).present?
+      flash[:success] = "すでに登録されているメールアドレスです"
+      redirect_to signin_path and return
+    end
     @activation_token = ActivationToken.new(activation_token_params)
     if @activation_token.save
       ActivationTokenMailer.create_account(@activation_token).deliver_now
