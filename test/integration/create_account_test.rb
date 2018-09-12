@@ -1,6 +1,16 @@
 require 'test_helper'
 
 class CreateAccountTest < ActionDispatch::IntegrationTest
+  test "already registered mail address" do
+    @user = users(:michael)
+    get new_create_account_path
+    assert_no_difference 'ActivationToken.count' do
+      post create_account_path, params: { activation_token: { email: @user.email } }
+    end
+    follow_redirect!
+    assert_template 'sessions/new'
+  end
+
   test "invalid information" do
     get new_create_account_path
     assert_no_difference 'ActivationToken.count' do
