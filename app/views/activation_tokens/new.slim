@@ -1,0 +1,12 @@
+.o-body.o-body--small
+  - if @activation_token.errors.any?
+    ul
+      - @activation_token.errors.full_messages.each do |msg|
+        li = msg
+
+  = form_for @activation_token, url: create_account_path do |f|
+    div
+      = f.label :email
+      = f.email_field :email
+    div
+      = f.submit "メール送信"

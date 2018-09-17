@@ -1,0 +1,7 @@
+one:
+  email: example+1@example.com
+  digest: <%= Token.digest('test_token') %>
+
+two:
+  email: example+2@example.com
+  digest: <%= Token.digest('test_token') %>

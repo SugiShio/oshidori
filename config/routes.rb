@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   delete '/signout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
+  resource :error, only: [:show]
   resource :profile, only: [:show, :edit, :update], controller: 'users'
+  resource :create_account, only: [:new, :create, :show], controller: 'activation_tokens'
+
 end
